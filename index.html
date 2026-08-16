@@ -1,25 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stay In Love | Date Night Delivered</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3eadf;
+      color: #3b2a24;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: #f7f0e8;
+      border-bottom: 1px solid #dbc8b6;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #b36c73;
+    }
+
+    nav a {
+      color: #3b2a24;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 15px;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 70px 8%;
+      background: linear-gradient(
+        135deg,
+        #f3eadf 0%,
+        #ead8c7 100%
+      );
+    }
+
+    .hero-text {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      color: #a76369;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 560px;
+      margin-bottom: 30px;
+      color: #60463c;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #9a5f62;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #844f53;
+    }
+
+    .hero-card {
+      width: 360px;
+      max-width: 100%;
+      background: #c7a27e;
+      padding: 34px;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(71, 43, 31, 0.18);
+      text-align: center;
+      color: #2f211d;
+      border: 1px solid rgba(80, 51, 37, 0.16);
+    }
+
+    .hero-card .heart {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .hero-card h2 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      font-size: 16px;
+      margin: 0;
+      color: #3b2a24;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+      color: #6a5045;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      background: #f8f1ea;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #dfcdbd;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #b36c73;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-weight: bold;
+    }
+
+    .dates {
+      background: #e8d6c6;
+    }
+
+    .date-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .date-card {
+      background: #f8f1ea;
+      border-radius: 18px;
+      padding: 24px;
+      min-height: 150px;
+      border: 1px solid #d9c1ad;
+    }
+
+    .date-card h3 {
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+    }
+
+    .subscription {
+      text-align: center;
+      background: #3b2a24;
+      color: #fff7f1;
+    }
+
+    .subscription h2 {
+      font-family: Georgia, serif;
+      font-size: 44px;
+      margin-bottom: 16px;
+    }
+
+    .subscription p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      color: #eaded5;
+    }
+
+    footer {
+      background: #2c201c;
+      color: #e8ddd5;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .date-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .date-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>STAY IN LOVE ❤️</h1>
+  <header>
+    <div class="logo">STAY IN <span>LOVE</span> ♥</div>
 
-  <h2>Your date night. Delivered.</h2>
+    <nav>
+      <a href="#how">How It Works</a>
+      <a href="#dates">Our Dates</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
+  </header>
 
-  <p>
-    A completely different date night for two,
-    delivered to your door every month.
-  </p>
+  <main>
 
-  <h2>£29.99 / month</h2>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">Date night without the planning</div>
 
-  <button>Subscribe Now</button>
+        <h1>Stay in.<br>Fall in love again.</h1>
+
+        <p>
+          A completely different date night for two,
+          delivered straight to your door every month.
+          Open the box and your evening is sorted.
+        </p>
+
+        <div class="price">£29.99 / month</div>
+
+        <a class="btn" href="#subscribe">Join Stay In Love</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="heart">♥</div>
+        <h2>Your next date is inside.</h2>
+        <p>
+          Paint nights. Pizza nights. Games. Mysteries.
+          Surprises. Memories.
+        </p>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2 class="section-title">How it works</h2>
+
+      <p class="section-subtitle">
+        We plan the date so you can spend less time deciding what to do
+        and more time actually enjoying each other.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Subscribe</h3>
+          <p>Join for £29.99 a month. Cancel whenever you like.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Your box arrives</h3>
+          <p>Every month brings a completely different date-night experience.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Open & enjoy</h3>
+          <p>No planning. No arguing over what to do. Just open the box.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dates" id="dates">
+      <h2 class="section-title">A year of dates</h2>
+
+      <p class="section-subtitle">
+        Twelve months. Twelve completely different nights together.
+        And we don't tell you what's coming next.
+      </p>
+
+      <div class="date-grid">
+        <div class="date-card">
+          <h3>🎬 Movie Night</h3>
+          <p>Snacks, challenges and everything you need for a proper cinema night in.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🎨 Paint Your Partner</h3>
+          <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🍕 Pizza Night</h3>
+          <p>Make it, compete, eat it and decide who should never open a restaurant.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🎲 Games Night</h3>
+          <p>Challenges, competition, forfeits and bragging rights.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🕵️ Murder Mystery</h3>
+          <p>Follow the clues and work together to crack the case.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🔥 After Dark</h3>
+          <p>A more romantic night designed just for the two of you.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>🍫 Chocolate Night</h3>
+          <p>Make, decorate and probably eat far too much chocolate.</p>
+        </div>
+
+        <div class="date-card">
+          <h3>❓ Mystery Date</h3>
+          <p>Some dates are better when you know absolutely nothing beforehand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscription" id="subscribe">
+      <h2>Your next favourite night could arrive in a box.</h2>
+
+      <p>
+        One different date every month for £29.99.
+        Everything you need to switch off, stay in and enjoy being together.
+      </p>
+
+      <a class="btn" href="#">Subscribe for £29.99</a>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Stay In Love · Date night delivered.
+  </footer>
 
 </body>
 </html>
