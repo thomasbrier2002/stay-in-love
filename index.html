@@ -268,9 +268,7 @@ section:not(.hero) {
   font-style: italic;
 }
 
-/* =========================
-   OUR DATES
-   ========================= */
+/* OUR DATES */
 
 .dates {
   background: #ead5c3;
@@ -383,9 +381,7 @@ section:not(.hero) {
   opacity: .88;
 }
 
-/* -------------------------
-   PAINT YOUR PARTNER
-   ------------------------- */
+/* PAINT */
 
 .paint {
   background:
@@ -449,9 +445,7 @@ section:not(.hero) {
   transform: rotate(28deg);
 }
 
-/* -------------------------
-   MURDER MYSTERY
-   ------------------------- */
+/* MURDER MYSTERY */
 
 .mystery {
   background:
@@ -512,18 +506,13 @@ section:not(.hero) {
   border-radius: 50%;
   border: 2px solid rgba(255,247,241,.10);
   box-shadow:
-    inset 0 0 0 9px transparent,
     inset 0 0 0 11px rgba(255,247,241,.07),
-    inset 0 0 0 21px transparent,
     inset 0 0 0 23px rgba(255,247,241,.06),
-    inset 0 0 0 34px transparent,
     inset 0 0 0 36px rgba(255,247,241,.05);
   opacity: .7;
 }
 
-/* -------------------------
-   PIZZA NIGHT
-   ------------------------- */
+/* PIZZA */
 
 .pizza {
   background-color: #d9ad87;
@@ -568,9 +557,7 @@ section:not(.hero) {
   opacity: .55;
 }
 
-/* -------------------------
-   GAMES NIGHT
-   ------------------------- */
+/* GAMES */
 
 .games {
   background:
@@ -629,20 +616,7 @@ section:not(.hero) {
   z-index: 2;
 }
 
-.game-die::before {
-  content: "•  •\A  •\A•  •";
-  white-space: pre;
-  position: absolute;
-  inset: 5px;
-  color: #fff8f3;
-  font-size: 18px;
-  line-height: 13px;
-  text-align: center;
-}
-
-/* -------------------------
-   MOVIE NIGHT
-   ------------------------- */
+/* MOVIE */
 
 .movie {
   background:
@@ -697,9 +671,7 @@ section:not(.hero) {
   z-index: 1;
 }
 
-/* -------------------------
-   AFTER DARK
-   ------------------------- */
+/* AFTER DARK */
 
 .afterdark {
   background:
@@ -754,9 +726,7 @@ section:not(.hero) {
   z-index: 1;
 }
 
-/* -------------------------
-   MYSTERY REVEAL
-   ------------------------- */
+/* MYSTERY END CARD */
 
 .more-dates {
   position: relative;
@@ -812,7 +782,7 @@ section:not(.hero) {
   color: #543a31;
 }
 
-/* SURPRISE */
+/* DON'T PEEK */
 
 .surprise {
   background: #f8f1e9;
@@ -833,31 +803,251 @@ section:not(.hero) {
   margin-bottom: 14px;
 }
 
-/* SUBSCRIPTION */
+/* =========================================
+   PREMIUM SUBSCRIPTION SECTION
+   ========================================= */
 
 .subscription {
-  text-align: center;
-  background: #38271f;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 13% 22%, rgba(195,120,126,.15), transparent 22%),
+    radial-gradient(circle at 87% 76%, rgba(206,162,127,.14), transparent 24%),
+    #34231d;
   color: #fff8f2;
 }
 
-.subscription h2 {
-  max-width: 800px;
-  margin: 0 auto 18px;
+.subscription-heading {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.subscription-heading .mini-title {
+  color: #d99ca1;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.subscription-heading h2 {
   font-family: Georgia, serif;
-  font-size: 47px;
+  font-size: clamp(46px,5vw,70px);
+  line-height: 1.04;
+  margin-bottom: 22px;
+  letter-spacing: -2px;
 }
 
-.subscription p {
-  max-width: 630px;
-  margin: 0 auto 25px;
-  color: #eaded5;
+.subscription-heading p {
+  color: #e7d8ce;
+  font-size: 18px;
 }
 
-.subscription-price {
-  font-size: 32px;
-  font-weight: bold;
+/* MAIN MEMBERSHIP CARD */
+
+.membership-card {
+  position: relative;
+  max-width: 1050px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #f7eee5;
+  color: #392720;
+  box-shadow: 0 30px 70px rgba(20,12,9,.25);
+}
+
+/* LEFT */
+
+.membership-info {
+  padding: 58px;
+  position: relative;
+}
+
+.membership-tag {
+  display: inline-block;
   margin-bottom: 24px;
+  padding: 8px 13px;
+  border-radius: 100px;
+  background: #ead1cf;
+  color: #96565d;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.membership-info h3 {
+  max-width: 440px;
+  font-family: Georgia, serif;
+  font-size: 43px;
+  line-height: 1.05;
+  margin-bottom: 15px;
+}
+
+.membership-copy {
+  max-width: 470px;
+  color: #71584c;
+  margin-bottom: 34px;
+  font-size: 16px;
+}
+
+.includes-title {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #a15f65;
+  margin-bottom: 18px;
+}
+
+.includes-list {
+  display: grid;
+  gap: 14px;
+}
+
+.include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #553c33;
+}
+
+.include-tick {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #b5656d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+/* RIGHT PRICE PANEL */
+
+.membership-price-panel {
+  position: relative;
+  padding: 58px 50px;
+  background:
+    radial-gradient(circle at 75% 15%, rgba(255,255,255,.13), transparent 22%),
+    #c58d88;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #2f201b;
+}
+
+.membership-price-panel::before {
+  content: "STAY IN LOVE";
+  position: absolute;
+  right: -38px;
+  top: 35px;
+  font-family: Georgia, serif;
+  font-size: 69px;
+  font-weight: bold;
+  color: rgba(255,244,236,.09);
+  transform: rotate(90deg);
+  white-space: nowrap;
+}
+
+.price-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2.4px;
+  margin-bottom: 10px;
+  opacity: .7;
+}
+
+.big-price {
+  font-family: Georgia, serif;
+  font-size: 68px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.big-price span {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.price-note {
+  margin-top: 13px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  max-width: 320px;
+}
+
+.subscribe-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 25px;
+  border-radius: 100px;
+  text-align: center;
+  text-decoration: none;
+  background: #38271f;
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  transition: .2s;
+  box-shadow: 0 12px 25px rgba(48,31,25,.17);
+}
+
+.subscribe-btn:hover {
+  background: #241914;
+  transform: translateY(-2px);
+}
+
+.checkout-note {
+  margin-top: 16px;
+  font-size: 12px;
+  text-align: center;
+  opacity: .7;
+}
+
+/* LITTLE PARCEL STAMP */
+
+.parcel-stamp {
+  position: absolute;
+  right: 30px;
+  bottom: 29px;
+  width: 74px;
+  height: 74px;
+  border: 2px dashed rgba(75,44,38,.24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-10deg);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.15;
+  opacity: .6;
+}
+
+/* TRUST STRIP */
+
+.subscription-trust {
+  max-width: 900px;
+  margin: 37px auto 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 17px 35px;
+  color: #dccbc1;
+  font-size: 13px;
+}
+
+.subscription-trust span::before {
+  content: "♥";
+  color: #c9858c;
+  margin-right: 7px;
 }
 
 /* FOOTER */
@@ -865,7 +1055,7 @@ section:not(.hero) {
 footer {
   padding: 38px;
   text-align: center;
-  background: #2a1d19;
+  background: #251915;
   color: #e9ddd5;
   font-size: 14px;
 }
@@ -889,6 +1079,16 @@ footer {
 
   .date-tile {
     min-height: 300px;
+  }
+
+  .membership-card {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+
+  .membership-info,
+  .membership-price-panel {
+    padding: 50px;
   }
 
 }
@@ -964,16 +1164,6 @@ footer {
     font-size:46px;
   }
 
-  .paint::before,
-  .mystery::after,
-  .pizza::before,
-  .games::before,
-  .games::after,
-  .movie::before {
-    transform: scale(.80);
-    transform-origin: top right;
-  }
-
   .date-tile h3 {
     font-size:31px;
   }
@@ -984,6 +1174,27 @@ footer {
 
   .more-dates h3 {
     font-size:31px;
+  }
+
+  .subscription-heading h2 {
+    font-size: 44px;
+  }
+
+  .membership-info,
+  .membership-price-panel {
+    padding: 38px 28px;
+  }
+
+  .membership-info h3 {
+    font-size: 35px;
+  }
+
+  .big-price {
+    font-size: 58px;
+  }
+
+  .parcel-stamp {
+    display: none;
   }
 
 }
@@ -1132,23 +1343,13 @@ something different to experience together.
 
 <div class="date-showcase">
 
-<!-- PAINT -->
-
 <div class="date-tile large paint">
 
-<span class="date-label">
-CREATIVE
-</span>
-
-<span class="date-number">
-01
-</span>
-
+<span class="date-label">CREATIVE</span>
+<span class="date-number">01</span>
 <div class="paint-doodle"></div>
 
-<h3>
-Paint Your Partner
-</h3>
+<h3>Paint Your Partner</h3>
 
 <p>
 Two canvases. Two portraits. One very good chance
@@ -1157,24 +1358,15 @@ neither of you looks anything like the finished painting.
 
 </div>
 
-<!-- MURDER MYSTERY -->
-
 <div class="date-tile small mystery">
 
-<span class="date-label">
-MYSTERY
-</span>
-
-<span class="date-number">
-02
-</span>
+<span class="date-label">MYSTERY</span>
+<span class="date-number">02</span>
 
 <div class="case-dot"></div>
 <div class="fingerprint"></div>
 
-<h3>
-Murder Mystery
-</h3>
+<h3>Murder Mystery</h3>
 
 <p>
 Follow the clues, question everything and see
@@ -1183,21 +1375,12 @@ which one of you cracks the case first.
 
 </div>
 
-<!-- PIZZA -->
-
 <div class="date-tile small pizza">
 
-<span class="date-label">
-FOOD
-</span>
+<span class="date-label">FOOD</span>
+<span class="date-number">03</span>
 
-<span class="date-number">
-03
-</span>
-
-<h3>
-Pizza Night
-</h3>
+<h3>Pizza Night</h3>
 
 <p>
 Make them together, compete for the best creation
@@ -1206,23 +1389,14 @@ and then eat the evidence.
 
 </div>
 
-<!-- GAMES -->
-
 <div class="date-tile large games">
 
-<span class="date-label">
-COMPETITIVE
-</span>
-
-<span class="date-number">
-04
-</span>
+<span class="date-label">COMPETITIVE</span>
+<span class="date-number">04</span>
 
 <div class="game-die"></div>
 
-<h3>
-Games Night
-</h3>
+<h3>Games Night</h3>
 
 <p>
 Challenges, ridiculous forfeits and enough
@@ -1231,25 +1405,14 @@ bragging rights to last until next month's box.
 
 </div>
 
-<!-- MOVIE -->
-
 <div class="date-tile large movie">
 
-<span class="date-label">
-COSY
-</span>
+<span class="date-label">COSY</span>
+<span class="date-number">05</span>
 
-<span class="date-number">
-05
-</span>
+<div class="movie-star">✦ ✦ ✦</div>
 
-<div class="movie-star">
-✦ ✦ ✦
-</div>
-
-<h3>
-Movie Night
-</h3>
+<h3>Movie Night</h3>
 
 <p>
 Snacks, something worth watching and an excuse
@@ -1258,25 +1421,14 @@ to make the living room considerably cosier than usual.
 
 </div>
 
-<!-- AFTER DARK -->
-
 <div class="date-tile small afterdark">
 
-<span class="date-label">
-ROMANTIC
-</span>
+<span class="date-label">ROMANTIC</span>
+<span class="date-number">06</span>
 
-<span class="date-number">
-06
-</span>
+<div class="after-stars">✦ · ✦</div>
 
-<div class="after-stars">
-✦ · ✦
-</div>
-
-<h3>
-After Dark
-</h3>
+<h3>After Dark</h3>
 
 <p>
 A more intimate date night designed for when
@@ -1287,13 +1439,9 @@ you want the rest of the world switched off.
 
 </div>
 
-<!-- KEEP THE MYSTERY -->
-
 <div class="more-dates">
 
-<div class="heart">
-♥
-</div>
+<div class="heart">♥</div>
 
 <h3>
 And that's all we're showing you...
@@ -1313,7 +1461,7 @@ Some get a little messy. You won't know which one's coming next. ♥
 
 </section>
 
-<!-- SURPRISE -->
+<!-- DON'T PEEK -->
 
 <section class="surprise">
 
@@ -1333,27 +1481,124 @@ different night together.
 
 </section>
 
-<!-- SUBSCRIBE -->
+<!-- PREMIUM SUBSCRIPTION -->
 
 <section class="subscription" id="subscribe">
 
+<div class="subscription-heading">
+
+<div class="mini-title">
+THE STAY IN LOVE MONTHLY DATE CLUB
+</div>
+
 <h2>
-Your next favourite date could arrive in a box.
+One box. One night.<br>
+Just the two of you.
 </h2>
 
 <p>
-One completely different date for two every month.
-Everything you need to switch off, stay in and
-make some memories.
+Your next date is already planned.
+All that's left to do is make the time.
 </p>
 
-<div class="subscription-price">
-£29.99 / month
 </div>
 
-<a class="btn" href="#">
+<div class="membership-card">
+
+<!-- LEFT -->
+
+<div class="membership-info">
+
+<div class="membership-tag">
+YOUR MONTHLY DATE
+</div>
+
+<h3>
+Something different to do together. Every single month.
+</h3>
+
+<p class="membership-copy">
+Stay In Love takes the planning out of date night.
+Every box brings a completely different experience
+for two, packed and delivered straight to your door.
+</p>
+
+<div class="includes-title">
+EVERY MONTH INCLUDES
+</div>
+
+<div class="includes-list">
+
+<div class="include-item">
+<div class="include-tick">✓</div>
+<div>A completely different date-night experience for two</div>
+</div>
+
+<div class="include-item">
+<div class="include-tick">✓</div>
+<div>Everything you need for the main activity</div>
+</div>
+
+<div class="include-item">
+<div class="include-tick">✓</div>
+<div>Surprise theme — no knowing what arrives next</div>
+</div>
+
+<div class="include-item">
+<div class="include-tick">✓</div>
+<div>Delivered straight to your door</div>
+</div>
+
+<div class="include-item">
+<div class="include-tick">✓</div>
+<div>No long-term commitment — cancel anytime</div>
+</div>
+
+</div>
+
+<div class="parcel-stamp">
+DATE<br>
+NIGHT<br>
+DELIVERED
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="membership-price-panel">
+
+<div class="price-label">
+STAY IN LOVE MEMBERSHIP
+</div>
+
+<div class="big-price">
+£29.99 <span>/ month</span>
+</div>
+
+<p class="price-note">
+One new surprise date every month.
+Cancel whenever you like.
+</p>
+
+<a class="subscribe-btn" href="#">
 Start Our Dates ♥
 </a>
+
+<div class="checkout-note">
+Secure checkout · Cancel anytime
+</div>
+
+</div>
+
+</div>
+
+<div class="subscription-trust">
+<span>Made for two</span>
+<span>A different date every month</span>
+<span>No long contract</span>
+<span>Surprise delivery</span>
+</div>
 
 </section>
 
