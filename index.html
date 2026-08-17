@@ -23,8 +23,6 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
-
     header {
       height: 105px;
       display: flex;
@@ -77,49 +75,28 @@
       background: #f4eadf;
     }
 
-    /*
-      Full-colour image.
-      NO opacity.
-      NO mask.
-      NO faded product.
-    */
-
     .hero-photo {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       width: 68%;
-
-      background-image:
-        url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
-
+      background-image: url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
       background-size: cover;
       background-position: center right;
       background-repeat: no-repeat;
-
       z-index: 1;
     }
-
-    /*
-      Cream blend layer.
-      This only covers the LEFT portion of the photograph.
-      By the time we reach the actual product,
-      it becomes transparent.
-    */
 
     .hero-blend {
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
-
       background: linear-gradient(
         90deg,
-
         #f4eadf 0%,
         #f4eadf 24%,
-
         rgba(244,234,223,0.99) 30%,
         rgba(244,234,223,0.95) 34%,
         rgba(244,234,223,0.82) 38%,
@@ -127,7 +104,6 @@
         rgba(244,234,223,0.30) 46%,
         rgba(244,234,223,0.10) 50%,
         rgba(244,234,223,0) 54%,
-
         rgba(244,234,223,0) 100%
       );
     }
@@ -199,8 +175,6 @@
       color: #735c51;
     }
 
-    /* GENERAL */
-
     section:not(.hero) {
       padding: 90px 8%;
     }
@@ -226,39 +200,67 @@
       background: #f8f1e9;
     }
 
-    .steps {
-      max-width: 1100px;
-      margin: auto;
+    .journey {
+      max-width: 1200px;
+      margin: 70px auto 0;
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
     }
 
-    .step {
-      padding: 38px 30px;
-      background: #fffaf5;
-      border: 1px solid #dfcdbd;
-      border-radius: 22px;
+    .journey::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: #d9a4aa;
+      z-index: 0;
+    }
+
+    .journey-step {
+      position: relative;
       text-align: center;
+      z-index: 1;
     }
 
-    .step-number {
-      width: 46px;
-      height: 46px;
+    .journey-number {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 18px;
-      border-radius: 100%;
       background: #b5656d;
       color: white;
-      font-weight: bold;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 0 0 10px #f8f1e9;
     }
 
-    .step h3 {
+    .journey-step h3 {
       font-family: Georgia, serif;
       font-size: 24px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .journey-step p {
+      max-width: 245px;
+      margin: 0 auto;
+      color: #70564a;
+      font-size: 15px;
+    }
+
+    .journey-message {
+      margin-top: 65px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #4a3028;
+      font-style: italic;
     }
 
     /* DATES */
@@ -351,8 +353,6 @@
       margin-bottom: 24px;
     }
 
-    /* FOOTER */
-
     footer {
       padding: 38px;
       text-align: center;
@@ -364,13 +364,21 @@
     /* TABLET */
 
     @media (max-width: 1050px) {
-
       .hero-photo {
         width: 63%;
       }
 
       .hero-text {
         width: 50%;
+      }
+
+      .journey {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 55px 30px;
+      }
+
+      .journey::before {
+        display: none;
       }
 
       .date-grid {
@@ -381,7 +389,6 @@
     /* MOBILE */
 
     @media (max-width: 700px) {
-
       header {
         height: 82px;
         padding: 0 5%;
@@ -405,7 +412,6 @@
         height: 62%;
         top: 0;
         bottom: auto;
-
         background-size: cover;
         background-position: center top;
       }
@@ -413,10 +419,8 @@
       .hero-blend {
         background: linear-gradient(
           0deg,
-
           #f4eadf 0%,
           #f4eadf 32%,
-
           rgba(244,234,223,0.95) 42%,
           rgba(244,234,223,0.65) 52%,
           rgba(244,234,223,0.25) 62%,
@@ -441,7 +445,15 @@
         font-size: 17px;
       }
 
-      .steps,
+      .journey {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .journey-message {
+        font-size: 29px;
+      }
+
       .date-grid {
         grid-template-columns: 1fr;
       }
@@ -460,7 +472,6 @@
 <body>
 
 <header>
-
   <div class="logo">
     STAY IN <span>LOVE</span> ♥
   </div>
@@ -470,17 +481,13 @@
     <a href="#dates">Our Dates</a>
     <a href="#subscribe">Subscribe</a>
   </nav>
-
 </header>
 
 <main>
 
-  <!-- HERO -->
-
   <section class="hero">
 
     <div class="hero-photo"></div>
-
     <div class="hero-blend"></div>
 
     <div class="hero-content">
@@ -521,7 +528,6 @@
 
   </section>
 
-
   <!-- HOW IT WORKS -->
 
   <section class="how" id="how">
@@ -531,43 +537,50 @@
     </h2>
 
     <p class="section-subtitle">
-      We plan everything so you can spend less time deciding
-      what to do and more time together.
+      From signing up to opening the box, we make date night easy.
     </p>
 
-    <div class="steps">
+    <div class="journey">
 
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Join</h3>
+      <div class="journey-step">
+        <div class="journey-number">01</div>
+        <h3>Join us</h3>
         <p>
-          Subscribe for £29.99 a month.
-          No long-term commitment.
+          Subscribe for £29.99 a month and your next date night is officially sorted.
         </p>
       </div>
 
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Get surprised</h3>
+      <div class="journey-step">
+        <div class="journey-number">02</div>
+        <h3>We plan it</h3>
         <p>
-          A completely different date-night box
-          arrives at your door every month.
+          Every month we create a completely different date-night experience for two.
         </p>
       </div>
 
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Stay in</h3>
+      <div class="journey-step">
+        <div class="journey-number">03</div>
+        <h3>It arrives</h3>
         <p>
-          Open the box, put the phones away
-          and enjoy your night together.
+          Everything you need is packed up and delivered straight to your door.
+        </p>
+      </div>
+
+      <div class="journey-step">
+        <div class="journey-number">04</div>
+        <h3>Date night ♥</h3>
+        <p>
+          Open the box together, put the phones away and make a night of it.
         </p>
       </div>
 
     </div>
 
-  </section>
+    <div class="journey-message">
+      We plan the date. You just make the time. ♥
+    </div>
 
+  </section>
 
   <!-- DATES -->
 
@@ -586,74 +599,47 @@
 
       <div class="date-card">
         <h3>🎬 Movie Night</h3>
-        <p>
-          Cinema snacks, drinks and everything
-          you need for a cosy movie date.
-        </p>
+        <p>Cinema snacks, drinks and everything you need for a cosy movie date.</p>
       </div>
 
       <div class="date-card">
         <h3>🎨 Paint Your Partner</h3>
-        <p>
-          Two canvases. Two portraits.
-          Potentially zero artistic talent.
-        </p>
+        <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
       </div>
 
       <div class="date-card">
         <h3>🍕 Pizza Night</h3>
-        <p>
-          Make it, compete, eat it
-          and decide who's the better chef.
-        </p>
+        <p>Make it, compete, eat it and decide who's the better chef.</p>
       </div>
 
       <div class="date-card">
         <h3>🎲 Games Night</h3>
-        <p>
-          Games, challenges, forfeits
-          and serious bragging rights.
-        </p>
+        <p>Games, challenges, forfeits and serious bragging rights.</p>
       </div>
 
       <div class="date-card">
         <h3>🕵️ Murder Mystery</h3>
-        <p>
-          Follow the evidence and crack
-          the case together.
-        </p>
+        <p>Follow the evidence and crack the case together.</p>
       </div>
 
       <div class="date-card">
         <h3>🔥 After Dark</h3>
-        <p>
-          A more intimate date designed
-          just for the two of you.
-        </p>
+        <p>A more intimate date designed just for the two of you.</p>
       </div>
 
       <div class="date-card">
         <h3>🍫 Chocolate Night</h3>
-        <p>
-          Make, decorate and taste
-          your own chocolate creations.
-        </p>
+        <p>Make, decorate and taste your own chocolate creations.</p>
       </div>
 
       <div class="date-card">
         <h3>❓ And more...</h3>
-        <p>
-          You won't know which date
-          is arriving next.
-        </p>
+        <p>You won't know which date is arriving next.</p>
       </div>
 
     </div>
 
   </section>
-
-
-  <!-- SURPRISE -->
 
   <section class="surprise">
 
@@ -665,16 +651,12 @@
 
       <p>
         Part of the fun is not knowing what's coming.
-        Every month you'll open the door to a completely
-        different night together.
+        Every month you'll open the door to a completely different night together.
       </p>
 
     </div>
 
   </section>
-
-
-  <!-- SUBSCRIBE -->
 
   <section class="subscription" id="subscribe">
 
@@ -684,8 +666,7 @@
 
     <p>
       One completely different date for two every month.
-      Everything you need to switch off, stay in
-      and make some memories.
+      Everything you need to switch off, stay in and make some memories.
     </p>
 
     <div class="subscription-price">
@@ -701,13 +682,11 @@
 </main>
 
 <footer>
-
   <strong>STAY IN LOVE ♥</strong>
   <br>
   Date night. Delivered.
   <br><br>
   © 2026 Stay In Love
-
 </footer>
 
 </body>
