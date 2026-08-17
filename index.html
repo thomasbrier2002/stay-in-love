@@ -23,8 +23,6 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
-
     header {
       display: flex;
       justify-content: space-between;
@@ -70,28 +68,54 @@
       align-items: center;
       padding: 75px 8%;
       overflow: hidden;
+      background: #f3eadf;
+    }
 
-      background-color: #f3eadf;
-
-      background-image:
-        linear-gradient(
-          90deg,
-          rgba(243,234,223,1) 0%,
-          rgba(243,234,223,0.98) 24%,
-          rgba(243,234,223,0.90) 34%,
-          rgba(243,234,223,0.60) 43%,
-          rgba(243,234,223,0.18) 53%,
-          rgba(243,234,223,0) 62%
-        ),
-        url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
-
-      /*
-        This shows more of the original image
-        instead of zooming it to fill the entire area.
-      */
-      background-size: auto 92%;
-      background-position: right center;
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 35%;
+      z-index: 0;
+      background-image: url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
+      background-size: cover;
+      background-position: center right;
       background-repeat: no-repeat;
+
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.08) 5%,
+        rgba(0,0,0,0.30) 14%,
+        rgba(0,0,0,0.65) 25%,
+        #000 38%,
+        #000 100%
+      );
+
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.08) 5%,
+        rgba(0,0,0,0.30) 14%,
+        rgba(0,0,0,0.65) 25%,
+        #000 38%,
+        #000 100%
+      );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+
+      background: linear-gradient(
+        90deg,
+        rgba(243,234,223,1) 0%,
+        rgba(243,234,223,0.98) 26%,
+        rgba(243,234,223,0.82) 36%,
+        rgba(243,234,223,0.35) 48%,
+        rgba(243,234,223,0) 60%
+      );
     }
 
     .hero-text {
@@ -156,8 +180,6 @@
       margin-top: 14px;
     }
 
-    /* GENERAL SECTIONS */
-
     section:not(.hero) {
       padding: 85px 8%;
     }
@@ -176,8 +198,6 @@
       color: #6a5045;
       font-size: 17px;
     }
-
-    /* HOW IT WORKS */
 
     .how {
       background: #f7f0e8;
@@ -218,8 +238,6 @@
       margin-bottom: 8px;
     }
 
-    /* OUR DATES */
-
     .dates {
       background: #e8d6c6;
     }
@@ -252,8 +270,6 @@
       font-size: 21px;
     }
 
-    /* SURPRISE */
-
     .surprise {
       background: #f7f0e8;
       text-align: center;
@@ -279,8 +295,6 @@
       margin: auto;
       font-size: 17px;
     }
-
-    /* SUBSCRIBE */
 
     .subscription {
       text-align: center;
@@ -308,8 +322,6 @@
       margin-bottom: 22px;
     }
 
-    /* FOOTER */
-
     footer {
       background: #2c201c;
       color: #e8ddd5;
@@ -318,16 +330,13 @@
       font-size: 14px;
     }
 
-    /* TABLET */
-
     @media (max-width: 1000px) {
-      .hero {
-        background-size: auto 78%;
-        background-position: 115% center;
+      .hero-photo {
+        inset: 0 0 0 28%;
       }
 
       .hero-text {
-        width: 55%;
+        width: 54%;
       }
 
       .date-grid {
@@ -335,38 +344,55 @@
       }
     }
 
-    /* MOBILE */
-
     @media (max-width: 700px) {
       header {
         padding: 18px 5%;
-      }
-
-      .logo {
-        font-size: 23px;
       }
 
       nav {
         display: none;
       }
 
+      .logo {
+        font-size: 23px;
+      }
+
       .hero {
-        min-height: 92vh;
+        min-height: 94vh;
         align-items: flex-end;
         padding: 60px 6% 50px;
+      }
 
-        background-image:
-          linear-gradient(
-            0deg,
-            rgba(243,234,223,1) 0%,
-            rgba(243,234,223,0.98) 38%,
-            rgba(243,234,223,0.65) 58%,
-            rgba(243,234,223,0.08) 80%
-          ),
-          url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
-
-        background-size: auto 72%;
+      .hero-photo {
+        inset: 0;
+        background-size: auto 66%;
         background-position: center top;
+
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 45%,
+          rgba(0,0,0,0.7) 58%,
+          transparent 80%
+        );
+
+        mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 45%,
+          rgba(0,0,0,0.7) 58%,
+          transparent 80%
+        );
+      }
+
+      .hero::after {
+        background: linear-gradient(
+          0deg,
+          rgba(243,234,223,1) 0%,
+          rgba(243,234,223,0.97) 40%,
+          rgba(243,234,223,0.50) 62%,
+          rgba(243,234,223,0) 80%
+        );
       }
 
       .hero-text {
@@ -382,10 +408,7 @@
         font-size: 17px;
       }
 
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
+      .steps,
       .date-grid {
         grid-template-columns: 1fr;
       }
@@ -404,7 +427,6 @@
 <body>
 
 <header>
-
   <div class="logo">
     STAY IN <span>LOVE</span> ♥
   </div>
@@ -414,18 +436,14 @@
     <a href="#dates">Our Dates</a>
     <a href="#subscribe">Subscribe</a>
   </nav>
-
 </header>
-
 
 <main>
 
-  <!-- HERO -->
-
   <section class="hero">
+    <div class="hero-photo"></div>
 
     <div class="hero-text">
-
       <div class="eyebrow">
         DATE NIGHT WITHOUT THE PLANNING
       </div>
@@ -453,16 +471,10 @@
       <div class="small-price">
         Cancel anytime · A new surprise every month
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- HOW IT WORKS -->
-
   <section class="how" id="how">
-
     <h2 class="section-title">
       Date night, sorted.
     </h2>
@@ -473,156 +485,96 @@
     </p>
 
     <div class="steps">
-
       <div class="step">
         <div class="step-number">1</div>
         <h3>Join</h3>
-        <p>
-          Subscribe for £29.99 a month.
-          No long-term commitment.
-        </p>
+        <p>Subscribe for £29.99 a month. No long-term commitment.</p>
       </div>
 
       <div class="step">
         <div class="step-number">2</div>
         <h3>Get surprised</h3>
-        <p>
-          A completely different date-night box
-          arrives at your door every month.
-        </p>
+        <p>A completely different date-night box arrives at your door every month.</p>
       </div>
 
       <div class="step">
         <div class="step-number">3</div>
         <h3>Stay in</h3>
-        <p>
-          Open the box, put the phones away
-          and enjoy your night together.
-        </p>
+        <p>Open the box, put the phones away and enjoy your night together.</p>
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- DATES -->
-
   <section class="dates" id="dates">
-
     <h2 class="section-title">
       This isn't just another subscription box.
     </h2>
 
     <p class="section-subtitle">
-      It's twelve completely different reasons
-      to make time for each other.
+      It's twelve completely different reasons to make time for each other.
     </p>
 
     <div class="date-grid">
-
       <div class="date-card">
         <h3>🎬 Movie Night</h3>
-        <p>
-          Cinema snacks, drinks, games and everything
-          you need for a cosy movie date.
-        </p>
+        <p>Cinema snacks, drinks, games and everything you need for a cosy movie date.</p>
       </div>
 
       <div class="date-card">
         <h3>🎨 Paint Your Partner</h3>
-        <p>
-          Two canvases. Two portraits.
-          Potentially zero artistic talent.
-        </p>
+        <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
       </div>
 
       <div class="date-card">
         <h3>🍕 Pizza Night</h3>
-        <p>
-          Make it, compete, eat it and decide
-          who's the better chef.
-        </p>
+        <p>Make it, compete, eat it and decide who's the better chef.</p>
       </div>
 
       <div class="date-card">
         <h3>🎲 Games Night</h3>
-        <p>
-          Games, couples challenges, forfeits
-          and serious bragging rights.
-        </p>
+        <p>Games, couples challenges, forfeits and serious bragging rights.</p>
       </div>
 
       <div class="date-card">
         <h3>🕵️ Murder Mystery</h3>
-        <p>
-          Follow the evidence, question the suspects
-          and crack the case together.
-        </p>
+        <p>Follow the evidence, question the suspects and crack the case together.</p>
       </div>
 
       <div class="date-card">
         <h3>🔥 After Dark</h3>
-        <p>
-          A more intimate date night
-          designed just for the two of you.
-        </p>
+        <p>A more intimate date night designed just for the two of you.</p>
       </div>
 
       <div class="date-card">
         <h3>🍫 Chocolate Night</h3>
-        <p>
-          Make, decorate and taste
-          your own chocolate creations.
-        </p>
+        <p>Make, decorate and taste your own chocolate creations.</p>
       </div>
 
       <div class="date-card">
         <h3>❓ And more...</h3>
-        <p>
-          The best part?
-          You won't know which date is arriving next.
-        </p>
+        <p>The best part? You won't know which date is arriving next.</p>
       </div>
-
     </div>
-
   </section>
-
-
-  <!-- SURPRISE -->
 
   <section class="surprise">
-
     <div class="surprise-box">
-
-      <h2>
-        Don't peek. ♥
-      </h2>
-
+      <h2>Don't peek. ♥</h2>
       <p>
         Part of the fun is not knowing what's coming.
-        Every month you'll open the door to a completely
-        different night together.
+        Every month you'll open the door to a completely different night together.
       </p>
-
     </div>
-
   </section>
 
-
-  <!-- SUBSCRIBE -->
-
   <section class="subscription" id="subscribe">
-
     <h2>
       Your next favourite date could arrive in a box.
     </h2>
 
     <p>
       One completely different date for two every month.
-      Everything you need to switch off, stay in
-      and make some memories.
+      Everything you need to switch off, stay in and make some memories.
     </p>
 
     <div class="subscription-price">
@@ -632,24 +584,16 @@
     <a class="btn" href="#">
       Start Our Dates ♥
     </a>
-
   </section>
 
 </main>
 
-
 <footer>
-
   <strong>STAY IN LOVE ♥</strong>
-
   <br>
-
   Date night. Delivered.
-
   <br><br>
-
   © 2026 Stay In Love
-
 </footer>
 
 </body>
