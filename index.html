@@ -238,15 +238,12 @@ section:not(.hero) {
   height: 58px;
   border-radius: 50%;
   margin: 0 auto 24px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #b5656d;
   color: white;
   font-weight: 800;
-
   box-shadow: 0 0 0 10px #f8f1e9;
 }
 
@@ -272,7 +269,7 @@ section:not(.hero) {
 }
 
 /* =========================
-   NEW OUR DATES SECTION
+   OUR DATES
    ========================= */
 
 .dates {
@@ -305,12 +302,11 @@ section:not(.hero) {
   line-height: 1.7;
 }
 
-/* DATE TILE GRID */
+/* CARD GRID */
 
 .date-showcase {
   max-width: 1200px;
   margin: auto;
-
   display: grid;
   grid-template-columns: repeat(12,1fr);
   gap: 22px;
@@ -318,25 +314,24 @@ section:not(.hero) {
 
 .date-tile {
   position: relative;
-  min-height: 310px;
-  border-radius: 26px;
-  padding: 35px;
-
+  min-height: 285px;
+  border-radius: 28px;
+  padding: 34px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   overflow: hidden;
+  isolation: isolate;
   border: 1px solid rgba(79,49,38,0.12);
-
+  box-shadow: 0 12px 28px rgba(70,43,31,0.06);
   transition:
     transform .25s ease,
     box-shadow .25s ease;
 }
 
 .date-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(67,42,32,0.12);
+  transform: translateY(-7px);
+  box-shadow: 0 24px 48px rgba(67,42,32,0.14);
 }
 
 .date-tile.large {
@@ -347,86 +342,445 @@ section:not(.hero) {
   grid-column: span 5;
 }
 
-/* DIFFERENT WARM TONES */
-
-.paint {
-  background: #c98783;
+.date-tile > * {
+  position: relative;
+  z-index: 5;
 }
-
-.mystery {
-  background: #51382f;
-  color: #fff7f1;
-}
-
-.pizza {
-  background: #d9ad87;
-}
-
-.games {
-  background: #f4e7da;
-}
-
-.movie {
-  background: #b98278;
-}
-
-.afterdark {
-  background: #382720;
-  color: #fff8f3;
-}
-
-/* TILE DETAILS */
 
 .date-label {
   position: absolute;
-  top: 28px;
+  top: 27px;
   left: 30px;
-
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   text-transform: uppercase;
-
-  opacity: .75;
+  opacity: .78;
 }
 
 .date-number {
   position: absolute;
-  right: 30px;
-  top: 20px;
-
+  top: 11px;
+  right: 27px;
   font-family: Georgia, serif;
-  font-size: 55px;
-  opacity: .10;
+  font-size: 62px;
+  line-height: 1;
+  opacity: .09;
 }
 
 .date-tile h3 {
   font-family: Georgia, serif;
-  font-size: 35px;
-  line-height: 1.05;
-  margin-bottom: 13px;
+  font-size: clamp(30px,3vw,40px);
+  line-height: 1.03;
+  margin-bottom: 12px;
+  max-width: 520px;
 }
 
 .date-tile p {
-  max-width: 470px;
+  max-width: 500px;
   font-size: 16px;
-  line-height: 1.6;
-  opacity: .86;
+  line-height: 1.62;
+  opacity: .88;
 }
 
-/* MYSTERY ENDING */
+/* -------------------------
+   PAINT YOUR PARTNER
+   ------------------------- */
+
+.paint {
+  background:
+    radial-gradient(circle at 82% 23%, rgba(255,231,213,.35) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 73% 32%, rgba(113,67,64,.16) 0 5%, transparent 5.5%),
+    #c98783;
+}
+
+.paint::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 115px;
+  right: 55px;
+  top: 73px;
+  border: 6px solid rgba(255,245,235,.62);
+  background: rgba(250,235,220,.20);
+  transform: rotate(7deg);
+  box-shadow:
+    -32px 18px 0 -4px rgba(255,245,235,.36);
+  z-index: 1;
+}
+
+.paint::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 20px;
+  right: 10px;
+  top: 122px;
+  border-radius: 60% 20% 55% 35%;
+  background: rgba(109,60,58,.20);
+  transform: rotate(-16deg);
+  box-shadow:
+    18px 35px 0 -3px rgba(255,235,217,.33),
+    -30px 67px 0 -6px rgba(122,73,69,.14);
+  z-index: 2;
+}
+
+.paint-doodle {
+  position: absolute;
+  right: 31px;
+  bottom: 27px;
+  width: 92px;
+  height: 9px;
+  border-radius: 99px;
+  background: rgba(65,37,34,.23);
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.paint-doodle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: -20px;
+  width: 42px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(65,37,34,.23);
+  transform: rotate(28deg);
+}
+
+/* -------------------------
+   MURDER MYSTERY
+   ------------------------- */
+
+.mystery {
+  background:
+    radial-gradient(circle at 78% 27%, rgba(255,244,231,.07) 0 1.5%, transparent 2%),
+    radial-gradient(circle at 83% 32%, rgba(255,244,231,.05) 0 1%, transparent 1.5%),
+    linear-gradient(145deg, #594037, #493129);
+  color: #fff7f1;
+}
+
+.mystery::before {
+  content: "CONFIDENTIAL";
+  position: absolute;
+  right: 37px;
+  top: 78px;
+  padding: 7px 13px;
+  border: 2px solid rgba(228,184,166,.38);
+  color: rgba(236,198,181,.44);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.mystery::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  right: 47px;
+  top: 76px;
+  background:
+    linear-gradient(27deg, transparent 48%, rgba(214,164,150,.21) 49%, rgba(214,164,150,.21) 51%, transparent 52%),
+    linear-gradient(-33deg, transparent 48%, rgba(214,164,150,.15) 49%, rgba(214,164,150,.15) 51%, transparent 52%);
+  z-index: 1;
+}
+
+.case-dot {
+  position: absolute;
+  right: 96px;
+  top: 112px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #a95f61;
+  box-shadow:
+    70px 42px 0 #a95f61,
+    -44px 62px 0 #a95f61;
+  z-index: 2;
+}
+
+.fingerprint {
+  position: absolute;
+  right: 20px;
+  bottom: 13px;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,247,241,.10);
+  box-shadow:
+    inset 0 0 0 9px transparent,
+    inset 0 0 0 11px rgba(255,247,241,.07),
+    inset 0 0 0 21px transparent,
+    inset 0 0 0 23px rgba(255,247,241,.06),
+    inset 0 0 0 34px transparent,
+    inset 0 0 0 36px rgba(255,247,241,.05);
+  opacity: .7;
+}
+
+/* -------------------------
+   PIZZA NIGHT
+   ------------------------- */
+
+.pizza {
+  background-color: #d9ad87;
+  background-image:
+    linear-gradient(90deg, rgba(255,246,232,.12) 50%, transparent 50%),
+    linear-gradient(rgba(255,246,232,.12) 50%, transparent 50%);
+  background-size: 34px 34px;
+}
+
+.pizza::before {
+  content: "";
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  right: 43px;
+  top: 76px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 34%, #8f5b4b 0 7px, transparent 8px),
+    radial-gradient(circle at 64% 28%, #8f5b4b 0 8px, transparent 9px),
+    radial-gradient(circle at 58% 66%, #8f5b4b 0 7px, transparent 8px),
+    radial-gradient(circle at 29% 67%, #9b684f 0 6px, transparent 7px),
+    #d99963;
+  border: 12px solid #c78755;
+  box-shadow: 0 11px 0 rgba(95,57,40,.08);
+  opacity: .78;
+  z-index: 1;
+}
+
+.pizza::after {
+  content: "PIZZA NIGHT";
+  position: absolute;
+  right: 41px;
+  top: 211px;
+  padding: 6px 12px;
+  border: 1px solid rgba(84,50,38,.30);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  transform: rotate(4deg);
+  opacity: .55;
+}
+
+/* -------------------------
+   GAMES NIGHT
+   ------------------------- */
+
+.games {
+  background:
+    radial-gradient(circle at 80% 22%, rgba(181,101,109,.07), transparent 21%),
+    #f4e7da;
+}
+
+.games::before {
+  content: "A♥";
+  position: absolute;
+  right: 102px;
+  top: 61px;
+  width: 92px;
+  height: 126px;
+  border-radius: 10px;
+  background: rgba(255,250,245,.82);
+  border: 1px solid rgba(81,48,39,.13);
+  box-shadow: 10px 15px 22px rgba(60,35,29,.08);
+  color: #b5656d;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  padding: 11px;
+  transform: rotate(-11deg);
+  z-index: 1;
+}
+
+.games::after {
+  content: "K♠";
+  position: absolute;
+  right: 43px;
+  top: 76px;
+  width: 92px;
+  height: 126px;
+  border-radius: 10px;
+  background: rgba(255,250,245,.93);
+  border: 1px solid rgba(81,48,39,.13);
+  box-shadow: 10px 15px 22px rgba(60,35,29,.08);
+  color: #3a2822;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  padding: 11px;
+  transform: rotate(9deg);
+  z-index: 2;
+}
+
+.game-die {
+  position: absolute;
+  right: 205px;
+  top: 119px;
+  width: 52px;
+  height: 52px;
+  border-radius: 11px;
+  background: #b5656d;
+  transform: rotate(14deg);
+  box-shadow: 8px 9px 15px rgba(70,40,34,.12);
+  z-index: 2;
+}
+
+.game-die::before {
+  content: "•  •\A  •\A•  •";
+  white-space: pre;
+  position: absolute;
+  inset: 5px;
+  color: #fff8f3;
+  font-size: 18px;
+  line-height: 13px;
+  text-align: center;
+}
+
+/* -------------------------
+   MOVIE NIGHT
+   ------------------------- */
+
+.movie {
+  background:
+    radial-gradient(circle at 75% 22%, rgba(255,225,198,.16), transparent 18%),
+    linear-gradient(145deg, #bd867c, #ae756d);
+}
+
+.movie::before {
+  content: "";
+  position: absolute;
+  right: 37px;
+  top: 69px;
+  width: 245px;
+  height: 82px;
+  border-top: 11px solid rgba(58,35,30,.25);
+  border-bottom: 11px solid rgba(58,35,30,.25);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(244,225,211,.55) 0 18px,
+      transparent 18px 30px
+    );
+  opacity: .72;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+.movie::after {
+  content: "ADMIT TWO";
+  position: absolute;
+  right: 70px;
+  top: 174px;
+  width: 155px;
+  padding: 14px 10px;
+  text-align: center;
+  border: 2px dashed rgba(75,45,38,.28);
+  background: rgba(249,231,215,.26);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+
+.movie-star {
+  position: absolute;
+  right: 37px;
+  bottom: 24px;
+  color: rgba(255,241,226,.45);
+  font-size: 28px;
+  letter-spacing: 8px;
+  z-index: 1;
+}
+
+/* -------------------------
+   AFTER DARK
+   ------------------------- */
+
+.afterdark {
+  background:
+    radial-gradient(circle at 77% 40%, rgba(187,93,103,.24), transparent 18%),
+    radial-gradient(circle at 74% 43%, rgba(255,185,145,.09), transparent 31%),
+    linear-gradient(145deg, #3e2a23, #2c1e1a);
+  color: #fff8f3;
+}
+
+.afterdark::before {
+  content: "";
+  position: absolute;
+  right: 84px;
+  top: 74px;
+  width: 69px;
+  height: 108px;
+  border-radius: 12px 12px 8px 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,226,201,.85),
+    rgba(181,101,109,.42)
+  );
+  box-shadow:
+    0 0 35px rgba(199,106,104,.40),
+    0 0 90px rgba(199,106,104,.16);
+  opacity: .7;
+  z-index: 1;
+}
+
+.afterdark::after {
+  content: "";
+  position: absolute;
+  right: 106px;
+  top: 49px;
+  width: 25px;
+  height: 37px;
+  border-radius: 55% 45% 52% 48%;
+  background: #f0b184;
+  box-shadow:
+    0 0 20px #d9846e,
+    0 0 46px rgba(217,132,110,.48);
+  z-index: 2;
+}
+
+.after-stars {
+  position: absolute;
+  right: 28px;
+  bottom: 25px;
+  color: rgba(255,225,208,.30);
+  font-size: 24px;
+  letter-spacing: 9px;
+  z-index: 1;
+}
+
+/* -------------------------
+   MYSTERY REVEAL
+   ------------------------- */
 
 .more-dates {
+  position: relative;
   max-width: 1200px;
-  margin: 22px auto 0;
-
-  padding: 60px 35px;
-
+  margin: 24px auto 0;
+  padding: 66px 35px;
   text-align: center;
-
-  background: #f8f1e9;
-  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(181,101,109,.07), transparent 27%),
+    #f8f1e9;
+  border-radius: 28px;
   border: 1px solid #d8bdab;
+  overflow: hidden;
+}
+
+.more-dates::before {
+  content: "?";
+  position: absolute;
+  right: 5%;
+  top: -56px;
+  font-family: Georgia, serif;
+  font-size: 260px;
+  color: rgba(181,101,109,.045);
+  transform: rotate(8deg);
 }
 
 .more-dates .heart {
@@ -452,7 +806,6 @@ section:not(.hero) {
   max-width: 900px;
   margin: 60px auto 0;
   text-align: center;
-
   font-family: Georgia, serif;
   font-size: 27px;
   font-style: italic;
@@ -533,6 +886,11 @@ footer {
   .date-tile.small {
     grid-column: span 6;
   }
+
+  .date-tile {
+    min-height: 300px;
+  }
+
 }
 
 /* MOBILE */
@@ -598,11 +956,26 @@ footer {
 
   .date-tile {
     margin-bottom:18px;
-    min-height:270px;
+    min-height:285px;
+    padding:28px;
   }
 
   .dates-heading h2 {
     font-size:46px;
+  }
+
+  .paint::before,
+  .mystery::after,
+  .pizza::before,
+  .games::before,
+  .games::after,
+  .movie::before {
+    transform: scale(.80);
+    transform-origin: top right;
+  }
+
+  .date-tile h3 {
+    font-size:31px;
   }
 
   .more-dates {
@@ -759,6 +1132,8 @@ something different to experience together.
 
 <div class="date-showcase">
 
+<!-- PAINT -->
+
 <div class="date-tile large paint">
 
 <span class="date-label">
@@ -768,6 +1143,8 @@ CREATIVE
 <span class="date-number">
 01
 </span>
+
+<div class="paint-doodle"></div>
 
 <h3>
 Paint Your Partner
@@ -780,6 +1157,8 @@ neither of you looks anything like the finished painting.
 
 </div>
 
+<!-- MURDER MYSTERY -->
+
 <div class="date-tile small mystery">
 
 <span class="date-label">
@@ -789,6 +1168,9 @@ MYSTERY
 <span class="date-number">
 02
 </span>
+
+<div class="case-dot"></div>
+<div class="fingerprint"></div>
 
 <h3>
 Murder Mystery
@@ -800,6 +1182,8 @@ which one of you cracks the case first.
 </p>
 
 </div>
+
+<!-- PIZZA -->
 
 <div class="date-tile small pizza">
 
@@ -822,6 +1206,8 @@ and then eat the evidence.
 
 </div>
 
+<!-- GAMES -->
+
 <div class="date-tile large games">
 
 <span class="date-label">
@@ -831,6 +1217,8 @@ COMPETITIVE
 <span class="date-number">
 04
 </span>
+
+<div class="game-die"></div>
 
 <h3>
 Games Night
@@ -843,6 +1231,8 @@ bragging rights to last until next month's box.
 
 </div>
 
+<!-- MOVIE -->
+
 <div class="date-tile large movie">
 
 <span class="date-label">
@@ -852,6 +1242,10 @@ COSY
 <span class="date-number">
 05
 </span>
+
+<div class="movie-star">
+✦ ✦ ✦
+</div>
 
 <h3>
 Movie Night
@@ -864,6 +1258,8 @@ to make the living room considerably cosier than usual.
 
 </div>
 
+<!-- AFTER DARK -->
+
 <div class="date-tile small afterdark">
 
 <span class="date-label">
@@ -873,6 +1269,10 @@ ROMANTIC
 <span class="date-number">
 06
 </span>
+
+<div class="after-stars">
+✦ · ✦
+</div>
 
 <h3>
 After Dark
@@ -886,6 +1286,8 @@ you want the rest of the world switched off.
 </div>
 
 </div>
+
+<!-- KEEP THE MYSTERY -->
 
 <div class="more-dates">
 
