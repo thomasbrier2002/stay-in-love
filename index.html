@@ -1,692 +1,976 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stay In Love | Date Night Delivered</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4eadf;
-      color: #34231d;
-      line-height: 1.6;
-    }
-
-    header {
-      height: 105px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 8%;
-      background: #f8f1e9;
-      border-bottom: 1px solid #dfcdbd;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 31px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #34231d;
-    }
-
-    .logo span {
-      color: #b5656d;
-    }
-
-    nav {
-      display: flex;
-      gap: 42px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #34231d;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    nav a:hover {
-      color: #b5656d;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      min-height: 780px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background: #f4eadf;
-    }
-
-    .hero-photo {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 68%;
-      background-image: url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
-      background-size: cover;
-      background-position: center right;
-      background-repeat: no-repeat;
-      z-index: 1;
-    }
-
-    .hero-blend {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background: linear-gradient(
-        90deg,
-        #f4eadf 0%,
-        #f4eadf 24%,
-        rgba(244,234,223,0.99) 30%,
-        rgba(244,234,223,0.95) 34%,
-        rgba(244,234,223,0.82) 38%,
-        rgba(244,234,223,0.58) 42%,
-        rgba(244,234,223,0.30) 46%,
-        rgba(244,234,223,0.10) 50%,
-        rgba(244,234,223,0) 54%,
-        rgba(244,234,223,0) 100%
-      );
-    }
-
-    .hero-content {
-      width: 100%;
-      padding: 80px 8%;
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero-text {
-      width: 45%;
-      max-width: 620px;
-    }
-
-    .eyebrow {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 2.7px;
-      color: #ae626a;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(62px, 6vw, 94px);
-      line-height: 0.96;
-      letter-spacing: -3px;
-      margin-bottom: 32px;
-      color: #32211c;
-    }
-
-    .hero-description {
-      max-width: 570px;
-      font-size: 19px;
-      color: #60483d;
-      line-height: 1.65;
-      margin-bottom: 30px;
-    }
-
-    .price {
-      font-family: Georgia, serif;
-      font-size: 31px;
-      font-weight: bold;
-      margin-bottom: 24px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 17px 32px;
-      background: #b5656d;
-      color: white;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.2s;
-      box-shadow: 0 10px 25px rgba(90,45,50,0.12);
-    }
-
-    .btn:hover {
-      background: #99535b;
-      transform: translateY(-2px);
-    }
-
-    .small-price {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #735c51;
-    }
-
-    section:not(.hero) {
-      padding: 90px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: Georgia, serif;
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      text-align: center;
-      font-size: 17px;
-      color: #70564a;
-    }
-
-    /* HOW IT WORKS */
-
-    .how {
-      background: #f8f1e9;
-    }
-
-    .journey {
-      max-width: 1200px;
-      margin: 70px auto 0;
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-    }
-
-    .journey::before {
-      content: "";
-      position: absolute;
-      top: 28px;
-      left: 12.5%;
-      right: 12.5%;
-      height: 2px;
-      background: #d9a4aa;
-      z-index: 0;
-    }
-
-    .journey-step {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .journey-number {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #b5656d;
-      color: white;
-      font-weight: 800;
-      font-size: 15px;
-      box-shadow: 0 0 0 10px #f8f1e9;
-    }
-
-    .journey-step h3 {
-      font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .journey-step p {
-      max-width: 245px;
-      margin: 0 auto;
-      color: #70564a;
-      font-size: 15px;
-    }
-
-    .journey-message {
-      margin-top: 65px;
-      text-align: center;
-      font-family: Georgia, serif;
-      font-size: 34px;
-      color: #4a3028;
-      font-style: italic;
-    }
-
-    /* DATES */
-
-    .dates {
-      background: #e7d3c1;
-    }
-
-    .date-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .date-card {
-      min-height: 175px;
-      padding: 28px;
-      background: #faf3ec;
-      border: 1px solid #d9bfaa;
-      border-radius: 20px;
-      transition: 0.2s;
-    }
-
-    .date-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(80,50,35,0.08);
-    }
-
-    .date-card h3 {
-      font-family: Georgia, serif;
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    /* SURPRISE */
-
-    .surprise {
-      background: #f8f1e9;
-      text-align: center;
-    }
-
-    .surprise-box {
-      max-width: 820px;
-      margin: auto;
-      padding: 55px;
-      border-radius: 28px;
-      background: #cba481;
-      box-shadow: 0 20px 50px rgba(71,43,31,0.10);
-    }
-
-    .surprise-box h2 {
-      font-family: Georgia, serif;
-      font-size: 42px;
-      margin-bottom: 14px;
-    }
-
-    .surprise-box p {
-      max-width: 610px;
-      margin: auto;
-      font-size: 17px;
-    }
-
-    /* SUBSCRIBE */
-
-    .subscription {
-      text-align: center;
-      background: #38271f;
-      color: #fff8f2;
-    }
-
-    .subscription h2 {
-      max-width: 800px;
-      margin: 0 auto 18px;
-      font-family: Georgia, serif;
-      font-size: 47px;
-    }
-
-    .subscription p {
-      max-width: 630px;
-      margin: 0 auto 25px;
-      color: #eaded5;
-      font-size: 17px;
-    }
-
-    .subscription-price {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 24px;
-    }
-
-    footer {
-      padding: 38px;
-      text-align: center;
-      background: #2a1d19;
-      color: #e9ddd5;
-      font-size: 14px;
-    }
-
-    /* TABLET */
-
-    @media (max-width: 1050px) {
-      .hero-photo {
-        width: 63%;
-      }
-
-      .hero-text {
-        width: 50%;
-      }
-
-      .journey {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 55px 30px;
-      }
-
-      .journey::before {
-        display: none;
-      }
-
-      .date-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-      header {
-        height: 82px;
-        padding: 0 5%;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        min-height: 940px;
-        align-items: flex-end;
-      }
-
-      .hero-photo {
-        width: 100%;
-        height: 62%;
-        top: 0;
-        bottom: auto;
-        background-size: cover;
-        background-position: center top;
-      }
-
-      .hero-blend {
-        background: linear-gradient(
-          0deg,
-          #f4eadf 0%,
-          #f4eadf 32%,
-          rgba(244,234,223,0.95) 42%,
-          rgba(244,234,223,0.65) 52%,
-          rgba(244,234,223,0.25) 62%,
-          rgba(244,234,223,0) 72%
-        );
-      }
-
-      .hero-content {
-        padding: 50px 6%;
-        align-self: flex-end;
-      }
-
-      .hero-text {
-        width: 100%;
-      }
-
-      h1 {
-        font-size: 55px;
-      }
-
-      .hero-description {
-        font-size: 17px;
-      }
-
-      .journey {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .journey-message {
-        font-size: 29px;
-      }
-
-      .date-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 36px;
-      }
-
-      .subscription h2 {
-        font-size: 36px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stay In Love | Date Night Delivered</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4eadf;
+  color: #34231d;
+  line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+  height: 105px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  background: #f8f1e9;
+  border-bottom: 1px solid #dfcdbd;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 31px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #b5656d;
+}
+
+nav {
+  display: flex;
+  gap: 42px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #34231d;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+nav a:hover {
+  color: #b5656d;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #f4eadf;
+}
+
+.hero-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+
+  background-image:
+    url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
+
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.hero-blend {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #f4eadf 0%,
+    #f4eadf 24%,
+    rgba(244,234,223,0.99) 30%,
+    rgba(244,234,223,0.95) 34%,
+    rgba(244,234,223,0.82) 38%,
+    rgba(244,234,223,0.58) 42%,
+    rgba(244,234,223,0.30) 46%,
+    rgba(244,234,223,0.10) 50%,
+    rgba(244,234,223,0) 54%,
+    rgba(244,234,223,0) 100%
+  );
+}
+
+.hero-content {
+  width: 100%;
+  padding: 80px 8%;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text {
+  width: 45%;
+  max-width: 620px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2.7px;
+  color: #ae626a;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(62px, 6vw, 94px);
+  line-height: 0.96;
+  letter-spacing: -3px;
+  margin-bottom: 32px;
+}
+
+.hero-description {
+  max-width: 570px;
+  font-size: 19px;
+  color: #60483d;
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+
+.price {
+  font-family: Georgia, serif;
+  font-size: 31px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 17px 32px;
+  background: #b5656d;
+  color: white;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s;
+  box-shadow: 0 10px 25px rgba(90,45,50,0.12);
+}
+
+.btn:hover {
+  background: #99535b;
+  transform: translateY(-2px);
+}
+
+.small-price {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #735c51;
+}
+
+/* GENERAL SECTIONS */
+
+section:not(.hero) {
+  padding: 100px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  max-width: 760px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 17px;
+  color: #70564a;
+}
+
+/* HOW IT WORKS */
+
+.how {
+  background: #f8f1e9;
+}
+
+.journey {
+  max-width: 1200px;
+  margin: 70px auto 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+}
+
+.journey::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: #d9a4aa;
+}
+
+.journey-step {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.journey-number {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #b5656d;
+  color: white;
+  font-weight: 800;
+
+  box-shadow: 0 0 0 10px #f8f1e9;
+}
+
+.journey-step h3 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.journey-step p {
+  max-width: 245px;
+  margin: auto;
+  color: #70564a;
+  font-size: 15px;
+}
+
+.journey-message {
+  margin-top: 65px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-style: italic;
+}
+
+/* =========================
+   NEW OUR DATES SECTION
+   ========================= */
+
+.dates {
+  background: #ead5c3;
+}
+
+.dates-heading {
+  max-width: 1000px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.dates-heading .eyebrow {
+  margin-bottom: 18px;
+}
+
+.dates-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(46px,5vw,72px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.dates-heading p {
+  max-width: 690px;
+  margin: auto;
+  color: #684f44;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* DATE TILE GRID */
+
+.date-showcase {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 22px;
+}
+
+.date-tile {
+  position: relative;
+  min-height: 310px;
+  border-radius: 26px;
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+  border: 1px solid rgba(79,49,38,0.12);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.date-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(67,42,32,0.12);
+}
+
+.date-tile.large {
+  grid-column: span 7;
+}
+
+.date-tile.small {
+  grid-column: span 5;
+}
+
+/* DIFFERENT WARM TONES */
+
+.paint {
+  background: #c98783;
+}
+
+.mystery {
+  background: #51382f;
+  color: #fff7f1;
+}
+
+.pizza {
+  background: #d9ad87;
+}
+
+.games {
+  background: #f4e7da;
+}
+
+.movie {
+  background: #b98278;
+}
+
+.afterdark {
+  background: #382720;
+  color: #fff8f3;
+}
+
+/* TILE DETAILS */
+
+.date-label {
+  position: absolute;
+  top: 28px;
+  left: 30px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  opacity: .75;
+}
+
+.date-number {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+
+  font-family: Georgia, serif;
+  font-size: 55px;
+  opacity: .10;
+}
+
+.date-tile h3 {
+  font-family: Georgia, serif;
+  font-size: 35px;
+  line-height: 1.05;
+  margin-bottom: 13px;
+}
+
+.date-tile p {
+  max-width: 470px;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .86;
+}
+
+/* MYSTERY ENDING */
+
+.more-dates {
+  max-width: 1200px;
+  margin: 22px auto 0;
+
+  padding: 60px 35px;
+
+  text-align: center;
+
+  background: #f8f1e9;
+  border-radius: 26px;
+  border: 1px solid #d8bdab;
+}
+
+.more-dates .heart {
+  font-size: 27px;
+  color: #b5656d;
+  margin-bottom: 12px;
+}
+
+.more-dates h3 {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.more-dates p {
+  max-width: 600px;
+  margin: auto;
+  color: #70564a;
+  font-size: 17px;
+}
+
+.dates-final-line {
+  max-width: 900px;
+  margin: 60px auto 0;
+  text-align: center;
+
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-style: italic;
+  color: #543a31;
+}
+
+/* SURPRISE */
+
+.surprise {
+  background: #f8f1e9;
+  text-align: center;
+}
+
+.surprise-box {
+  max-width: 820px;
+  margin: auto;
+  padding: 55px;
+  border-radius: 28px;
+  background: #cba481;
+}
+
+.surprise-box h2 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+/* SUBSCRIPTION */
+
+.subscription {
+  text-align: center;
+  background: #38271f;
+  color: #fff8f2;
+}
+
+.subscription h2 {
+  max-width: 800px;
+  margin: 0 auto 18px;
+  font-family: Georgia, serif;
+  font-size: 47px;
+}
+
+.subscription p {
+  max-width: 630px;
+  margin: 0 auto 25px;
+  color: #eaded5;
+}
+
+.subscription-price {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 38px;
+  text-align: center;
+  background: #2a1d19;
+  color: #e9ddd5;
+  font-size: 14px;
+}
+
+/* TABLET */
+
+@media(max-width:1050px) {
+
+  .journey {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .journey::before {
+    display: none;
+  }
+
+  .date-tile.large,
+  .date-tile.small {
+    grid-column: span 6;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+  header {
+    height:82px;
+    padding:0 5%;
+  }
+
+  .logo {
+    font-size:23px;
+  }
+
+  nav {
+    display:none;
+  }
+
+  .hero {
+    min-height:940px;
+    align-items:flex-end;
+  }
+
+  .hero-photo {
+    width:100%;
+    height:62%;
+    top:0;
+    bottom:auto;
+  }
+
+  .hero-blend {
+    background:linear-gradient(
+      0deg,
+      #f4eadf 0%,
+      #f4eadf 32%,
+      rgba(244,234,223,.95) 42%,
+      rgba(244,234,223,.65) 52%,
+      rgba(244,234,223,.25) 62%,
+      rgba(244,234,223,0) 72%
+    );
+  }
+
+  .hero-content {
+    padding:50px 6%;
+  }
+
+  .hero-text {
+    width:100%;
+  }
+
+  h1 {
+    font-size:55px;
+  }
+
+  .journey {
+    grid-template-columns:1fr;
+  }
+
+  .date-showcase {
+    display:block;
+  }
+
+  .date-tile {
+    margin-bottom:18px;
+    min-height:270px;
+  }
+
+  .dates-heading h2 {
+    font-size:46px;
+  }
+
+  .more-dates {
+    padding:45px 25px;
+  }
+
+  .more-dates h3 {
+    font-size:31px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    STAY IN <span>LOVE</span> ♥
-  </div>
 
-  <nav>
-    <a href="#how">How It Works</a>
-    <a href="#dates">Our Dates</a>
-    <a href="#subscribe">Subscribe</a>
-  </nav>
+<div class="logo">
+STAY IN <span>LOVE</span> ♥
+</div>
+
+<nav>
+<a href="#how">How It Works</a>
+<a href="#dates">Our Dates</a>
+<a href="#subscribe">Subscribe</a>
+</nav>
+
 </header>
 
 <main>
 
-  <section class="hero">
+<!-- HERO -->
 
-    <div class="hero-photo"></div>
-    <div class="hero-blend"></div>
+<section class="hero">
 
-    <div class="hero-content">
+<div class="hero-photo"></div>
+<div class="hero-blend"></div>
 
-      <div class="hero-text">
+<div class="hero-content">
 
-        <div class="eyebrow">
-          DATE NIGHT WITHOUT THE PLANNING
-        </div>
+<div class="hero-text">
 
-        <h1>
-          Stay in.<br>
-          Make a night<br>
-          of it.
-        </h1>
+<div class="eyebrow">
+DATE NIGHT WITHOUT THE PLANNING
+</div>
 
-        <p class="hero-description">
-          A completely different date night for two,
-          delivered straight to your door every month.
-          Open the box and your evening is sorted.
-        </p>
+<h1>
+Stay in.<br>
+Make a night<br>
+of it.
+</h1>
 
-        <div class="price">
-          £29.99 / month
-        </div>
+<p class="hero-description">
+A completely different date night for two,
+delivered straight to your door every month.
+Open the box and your evening is sorted.
+</p>
 
-        <a class="btn" href="#subscribe">
-          Join Stay In Love
-        </a>
+<div class="price">
+£29.99 / month
+</div>
 
-        <div class="small-price">
-          Cancel anytime · A new surprise every month
-        </div>
+<a class="btn" href="#subscribe">
+Join Stay In Love
+</a>
 
-      </div>
+<div class="small-price">
+Cancel anytime · A new surprise every month
+</div>
 
-    </div>
+</div>
+</div>
 
-  </section>
+</section>
 
-  <!-- HOW IT WORKS -->
+<!-- HOW IT WORKS -->
 
-  <section class="how" id="how">
+<section class="how" id="how">
 
-    <h2 class="section-title">
-      Date night, sorted.
-    </h2>
+<h2 class="section-title">
+Date night, sorted.
+</h2>
 
-    <p class="section-subtitle">
-      From signing up to opening the box, we make date night easy.
-    </p>
+<p class="section-subtitle">
+From signing up to opening the box, we make date night easy.
+</p>
 
-    <div class="journey">
+<div class="journey">
 
-      <div class="journey-step">
-        <div class="journey-number">01</div>
-        <h3>Join us</h3>
-        <p>
-          Subscribe for £29.99 a month and your next date night is officially sorted.
-        </p>
-      </div>
+<div class="journey-step">
+<div class="journey-number">01</div>
+<h3>Join us</h3>
+<p>
+Subscribe for £29.99 a month and your next date night is officially sorted.
+</p>
+</div>
 
-      <div class="journey-step">
-        <div class="journey-number">02</div>
-        <h3>We plan it</h3>
-        <p>
-          Every month we create a completely different date-night experience for two.
-        </p>
-      </div>
+<div class="journey-step">
+<div class="journey-number">02</div>
+<h3>We plan it</h3>
+<p>
+Every month we create a completely different date-night experience for two.
+</p>
+</div>
 
-      <div class="journey-step">
-        <div class="journey-number">03</div>
-        <h3>It arrives</h3>
-        <p>
-          Everything you need is packed up and delivered straight to your door.
-        </p>
-      </div>
+<div class="journey-step">
+<div class="journey-number">03</div>
+<h3>It arrives</h3>
+<p>
+Everything you need is packed up and delivered straight to your door.
+</p>
+</div>
 
-      <div class="journey-step">
-        <div class="journey-number">04</div>
-        <h3>Date night ♥</h3>
-        <p>
-          Open the box together, put the phones away and make a night of it.
-        </p>
-      </div>
+<div class="journey-step">
+<div class="journey-number">04</div>
+<h3>Date night ♥</h3>
+<p>
+Open the box together, put the phones away and make a night of it.
+</p>
+</div>
 
-    </div>
+</div>
 
-    <div class="journey-message">
-      We plan the date. You just make the time. ♥
-    </div>
+<div class="journey-message">
+We plan the date. You just make the time. ♥
+</div>
 
-  </section>
+</section>
 
-  <!-- DATES -->
+<!-- OUR DATES -->
 
-  <section class="dates" id="dates">
+<section class="dates" id="dates">
 
-    <h2 class="section-title">
-      This isn't just another subscription box.
-    </h2>
+<div class="dates-heading">
 
-    <p class="section-subtitle">
-      It's twelve completely different reasons
-      to make time for each other.
-    </p>
+<div class="eyebrow">
+A DIFFERENT NIGHT EVERY MONTH
+</div>
 
-    <div class="date-grid">
+<h2>
+Same person.<br>
+Different date.
+</h2>
 
-      <div class="date-card">
-        <h3>🎬 Movie Night</h3>
-        <p>Cinema snacks, drinks and everything you need for a cosy movie date.</p>
-      </div>
+<p>
+Because “what do you want to do tonight?” shouldn't
+always end with the same answer. Every box gives you
+something different to experience together.
+</p>
 
-      <div class="date-card">
-        <h3>🎨 Paint Your Partner</h3>
-        <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
-      </div>
+</div>
 
-      <div class="date-card">
-        <h3>🍕 Pizza Night</h3>
-        <p>Make it, compete, eat it and decide who's the better chef.</p>
-      </div>
+<div class="date-showcase">
 
-      <div class="date-card">
-        <h3>🎲 Games Night</h3>
-        <p>Games, challenges, forfeits and serious bragging rights.</p>
-      </div>
+<div class="date-tile large paint">
 
-      <div class="date-card">
-        <h3>🕵️ Murder Mystery</h3>
-        <p>Follow the evidence and crack the case together.</p>
-      </div>
+<span class="date-label">
+CREATIVE
+</span>
 
-      <div class="date-card">
-        <h3>🔥 After Dark</h3>
-        <p>A more intimate date designed just for the two of you.</p>
-      </div>
+<span class="date-number">
+01
+</span>
 
-      <div class="date-card">
-        <h3>🍫 Chocolate Night</h3>
-        <p>Make, decorate and taste your own chocolate creations.</p>
-      </div>
+<h3>
+Paint Your Partner
+</h3>
 
-      <div class="date-card">
-        <h3>❓ And more...</h3>
-        <p>You won't know which date is arriving next.</p>
-      </div>
+<p>
+Two canvases. Two portraits. One very good chance
+neither of you looks anything like the finished painting.
+</p>
 
-    </div>
+</div>
 
-  </section>
+<div class="date-tile small mystery">
 
-  <section class="surprise">
+<span class="date-label">
+MYSTERY
+</span>
 
-    <div class="surprise-box">
+<span class="date-number">
+02
+</span>
 
-      <h2>
-        Don't peek. ♥
-      </h2>
+<h3>
+Murder Mystery
+</h3>
 
-      <p>
-        Part of the fun is not knowing what's coming.
-        Every month you'll open the door to a completely different night together.
-      </p>
+<p>
+Follow the clues, question everything and see
+which one of you cracks the case first.
+</p>
 
-    </div>
+</div>
 
-  </section>
+<div class="date-tile small pizza">
 
-  <section class="subscription" id="subscribe">
+<span class="date-label">
+FOOD
+</span>
 
-    <h2>
-      Your next favourite date could arrive in a box.
-    </h2>
+<span class="date-number">
+03
+</span>
 
-    <p>
-      One completely different date for two every month.
-      Everything you need to switch off, stay in and make some memories.
-    </p>
+<h3>
+Pizza Night
+</h3>
 
-    <div class="subscription-price">
-      £29.99 / month
-    </div>
+<p>
+Make them together, compete for the best creation
+and then eat the evidence.
+</p>
 
-    <a class="btn" href="#">
-      Start Our Dates ♥
-    </a>
+</div>
 
-  </section>
+<div class="date-tile large games">
+
+<span class="date-label">
+COMPETITIVE
+</span>
+
+<span class="date-number">
+04
+</span>
+
+<h3>
+Games Night
+</h3>
+
+<p>
+Challenges, ridiculous forfeits and enough
+bragging rights to last until next month's box.
+</p>
+
+</div>
+
+<div class="date-tile large movie">
+
+<span class="date-label">
+COSY
+</span>
+
+<span class="date-number">
+05
+</span>
+
+<h3>
+Movie Night
+</h3>
+
+<p>
+Snacks, something worth watching and an excuse
+to make the living room considerably cosier than usual.
+</p>
+
+</div>
+
+<div class="date-tile small afterdark">
+
+<span class="date-label">
+ROMANTIC
+</span>
+
+<span class="date-number">
+06
+</span>
+
+<h3>
+After Dark
+</h3>
+
+<p>
+A more intimate date night designed for when
+you want the rest of the world switched off.
+</p>
+
+</div>
+
+</div>
+
+<div class="more-dates">
+
+<div class="heart">
+♥
+</div>
+
+<h3>
+And that's all we're showing you...
+</h3>
+
+<p>
+The surprise is half the fun. You won't know exactly
+which date is waiting for you until it's time to open the box.
+</p>
+
+</div>
+
+<div class="dates-final-line">
+Some dates are cosy. Some are competitive.
+Some get a little messy. You won't know which one's coming next. ♥
+</div>
+
+</section>
+
+<!-- SURPRISE -->
+
+<section class="surprise">
+
+<div class="surprise-box">
+
+<h2>
+Don't peek. ♥
+</h2>
+
+<p>
+Part of the fun is not knowing what's coming.
+Every month you'll open the door to a completely
+different night together.
+</p>
+
+</div>
+
+</section>
+
+<!-- SUBSCRIBE -->
+
+<section class="subscription" id="subscribe">
+
+<h2>
+Your next favourite date could arrive in a box.
+</h2>
+
+<p>
+One completely different date for two every month.
+Everything you need to switch off, stay in and
+make some memories.
+</p>
+
+<div class="subscription-price">
+£29.99 / month
+</div>
+
+<a class="btn" href="#">
+Start Our Dates ♥
+</a>
+
+</section>
 
 </main>
 
 <footer>
-  <strong>STAY IN LOVE ♥</strong>
-  <br>
-  Date night. Delivered.
-  <br><br>
-  © 2026 Stay In Love
+
+<strong>
+STAY IN LOVE ♥
+</strong>
+
+<br>
+
+Date night. Delivered.
+
+<br><br>
+
+© 2026 Stay In Love
+
 </footer>
 
 </body>
