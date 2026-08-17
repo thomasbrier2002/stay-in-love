@@ -24,16 +24,19 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 22px 8%;
-      background: #f7f0e8;
+      background: rgba(247, 240, 232, 0.96);
       border-bottom: 1px solid #dbc8b6;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      backdrop-filter: blur(10px);
     }
 
     .logo {
@@ -59,66 +62,81 @@
       color: #b36c73;
     }
 
+    /* HERO */
+
     .hero {
-      min-height: 82vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 55px;
-      padding: 70px 8%;
-      background: linear-gradient(135deg, #f3eadf 0%, #ead8c7 100%);
+      padding: 80px 8%;
+      position: relative;
+      overflow: hidden;
+
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(243, 234, 223, 0.98) 0%,
+          rgba(243, 234, 223, 0.94) 30%,
+          rgba(243, 234, 223, 0.72) 47%,
+          rgba(243, 234, 223, 0.20) 68%,
+          rgba(243, 234, 223, 0.04) 100%
+        ),
+        url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
+
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
     }
 
     .hero-text {
-      width: 47%;
-      max-width: 650px;
+      width: 52%;
+      max-width: 680px;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
       color: #a76369;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.4px;
       font-size: 13px;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
 
     h1 {
       font-family: Georgia, serif;
-      font-size: clamp(52px, 6vw, 88px);
-      line-height: 0.98;
-      margin-bottom: 25px;
-      letter-spacing: -2px;
+      font-size: clamp(58px, 6.4vw, 96px);
+      line-height: 0.96;
+      margin-bottom: 28px;
+      letter-spacing: -3px;
+      color: #35231d;
     }
 
     .hero-text > p {
-      font-size: 19px;
-      max-width: 580px;
-      margin-bottom: 28px;
+      font-size: 20px;
+      max-width: 590px;
+      margin-bottom: 30px;
       color: #60463c;
     }
 
     .price {
-      font-size: 27px;
+      font-size: 30px;
       font-weight: bold;
       margin-bottom: 22px;
-    }
-
-    .small-price {
-      font-size: 14px;
-      color: #735a4f;
-      margin-top: 12px;
+      color: #35231d;
     }
 
     .btn {
       display: inline-block;
       background: #a96369;
       color: white;
-      padding: 16px 30px;
+      padding: 17px 31px;
       border-radius: 999px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.2s ease;
+      box-shadow: 0 10px 24px rgba(117, 67, 71, 0.16);
     }
 
     .btn:hover {
@@ -126,17 +144,13 @@
       background: #8f5258;
     }
 
-    .hero-image {
-      width: 50%;
-      max-width: 720px;
+    .small-price {
+      font-size: 14px;
+      color: #735a4f;
+      margin-top: 14px;
     }
 
-    .hero-image img {
-      width: 100%;
-      display: block;
-      border-radius: 28px;
-      box-shadow: 0 25px 60px rgba(71, 43, 31, 0.20);
-    }
+    /* SECTIONS */
 
     section {
       padding: 85px 8%;
@@ -156,6 +170,8 @@
       color: #6a5045;
       font-size: 17px;
     }
+
+    /* HOW IT WORKS */
 
     .how {
       background: #f7f0e8;
@@ -196,6 +212,8 @@
       margin-bottom: 8px;
     }
 
+    /* DATES */
+
     .dates {
       background: #e8d6c6;
     }
@@ -227,6 +245,8 @@
       font-size: 21px;
     }
 
+    /* SURPRISE */
+
     .surprise {
       background: #f7f0e8;
       text-align: center;
@@ -238,7 +258,7 @@
       padding: 50px;
       border-radius: 25px;
       background: #c7a27e;
-      box-shadow: 0 20px 50px rgba(71,43,31,.12);
+      box-shadow: 0 20px 50px rgba(71, 43, 31, .12);
     }
 
     .surprise-box h2 {
@@ -252,6 +272,8 @@
       margin: auto;
       font-size: 17px;
     }
+
+    /* SUBSCRIPTION */
 
     .subscription {
       text-align: center;
@@ -279,6 +301,8 @@
       margin-bottom: 22px;
     }
 
+    /* FOOTER */
+
     footer {
       background: #2c201c;
       color: #e8ddd5;
@@ -286,6 +310,8 @@
       padding: 35px;
       font-size: 14px;
     }
+
+    /* MOBILE */
 
     @media (max-width: 900px) {
       header {
@@ -297,20 +323,26 @@
       }
 
       .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 55px 5%;
+        min-height: 90vh;
+        align-items: flex-end;
+        padding: 70px 5% 55px;
+
+        background-image:
+          linear-gradient(
+            0deg,
+            rgba(243, 234, 223, 0.98) 0%,
+            rgba(243, 234, 223, 0.94) 35%,
+            rgba(243, 234, 223, 0.45) 67%,
+            rgba(243, 234, 223, 0.10) 100%
+          ),
+          url("ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png");
+
+        background-position: center;
       }
 
-      .hero-text,
-      .hero-image {
+      .hero-text {
         width: 100%;
         max-width: 650px;
-      }
-
-      .hero-text > p {
-        margin-left: auto;
-        margin-right: auto;
       }
 
       .steps {
@@ -323,12 +355,12 @@
     }
 
     @media (max-width: 560px) {
-      .date-grid {
-        grid-template-columns: 1fr;
+      h1 {
+        font-size: 54px;
       }
 
-      h1 {
-        font-size: 52px;
+      .date-grid {
+        grid-template-columns: 1fr;
       }
 
       .section-title {
@@ -358,175 +390,169 @@
 
 <main>
 
-<section class="hero">
+  <section class="hero">
 
-  <div class="hero-text">
+    <div class="hero-text">
 
-    <div class="eyebrow">
-      DATE NIGHT WITHOUT THE PLANNING
+      <div class="eyebrow">
+        DATE NIGHT WITHOUT THE PLANNING
+      </div>
+
+      <h1>
+        Stay in.<br>
+        Make a night<br>
+        of it.
+      </h1>
+
+      <p>
+        A completely different date night for two,
+        delivered straight to your door every month.
+        Open the box and your evening is sorted.
+      </p>
+
+      <div class="price">
+        £29.99 / month
+      </div>
+
+      <a class="btn" href="#subscribe">
+        Join Stay In Love
+      </a>
+
+      <div class="small-price">
+        Cancel anytime · A new surprise every month
+      </div>
+
     </div>
 
-    <h1>
-      Stay in.<br>
-      Make a night of it.
-    </h1>
+  </section>
 
-    <p>
-      A completely different date night for two,
-      delivered straight to your door every month.
-      Open the box and your evening is sorted.
+  <section class="how" id="how">
+
+    <h2 class="section-title">
+      Date night, sorted.
+    </h2>
+
+    <p class="section-subtitle">
+      We plan everything so you can spend less time
+      deciding what to do and more time together.
     </p>
 
-    <div class="price">
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Join</h3>
+        <p>Subscribe for £29.99 a month. No long-term commitment.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Get surprised</h3>
+        <p>A completely different date-night box arrives at your door every month.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Stay in</h3>
+        <p>Open the box, put the phones away and enjoy your night together.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="dates" id="dates">
+
+    <h2 class="section-title">
+      This isn't just another subscription box.
+    </h2>
+
+    <p class="section-subtitle">
+      It's twelve completely different reasons to make time for each other.
+    </p>
+
+    <div class="date-grid">
+
+      <div class="date-card">
+        <h3>🎬 Movie Night</h3>
+        <p>Cinema snacks, drinks, games and everything you need for a cosy movie date.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🎨 Paint Your Partner</h3>
+        <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🍕 Pizza Night</h3>
+        <p>Make it, compete, eat it and decide who's the better chef.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🎲 Games Night</h3>
+        <p>Games, couples challenges, forfeits and serious bragging rights.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🕵️ Murder Mystery</h3>
+        <p>Follow the evidence, question the suspects and crack the case together.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🔥 After Dark</h3>
+        <p>A more intimate date night designed just for the two of you.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>🍫 Chocolate Night</h3>
+        <p>Make, decorate and taste your own chocolate creations.</p>
+      </div>
+
+      <div class="date-card">
+        <h3>❓ And more...</h3>
+        <p>The best part? You won't know which date is arriving next.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="surprise">
+
+    <div class="surprise-box">
+
+      <h2>Don't peek. ♥</h2>
+
+      <p>
+        Part of the fun is not knowing what's coming.
+        Every month you'll open the door to a completely
+        different night together.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="subscription" id="subscribe">
+
+    <h2>
+      Your next favourite date could arrive in a box.
+    </h2>
+
+    <p>
+      One completely different date for two every month.
+      Everything you need to switch off, stay in and make some memories.
+    </p>
+
+    <div class="subscription-price">
       £29.99 / month
     </div>
 
-    <a class="btn" href="#subscribe">
-      Join Stay In Love
+    <a class="btn" href="#">
+      Start Our Dates ♥
     </a>
 
-    <div class="small-price">
-      Cancel anytime · A new surprise every month
-    </div>
-
-  </div>
-
-  <div class="hero-image">
-    <img
-      src="ChatGPT Image Aug 17, 2026 at 09_40_12 AM.png"
-      alt="Stay In Love date night subscription box"
-    >
-  </div>
-
-</section>
-
-<section class="how" id="how">
-
-  <h2 class="section-title">
-    Date night, sorted.
-  </h2>
-
-  <p class="section-subtitle">
-    We plan everything so you can spend less time
-    deciding what to do and more time together.
-  </p>
-
-  <div class="steps">
-
-    <div class="step">
-      <div class="step-number">1</div>
-      <h3>Join</h3>
-      <p>Subscribe for £29.99 a month. No long-term commitment.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">2</div>
-      <h3>Get surprised</h3>
-      <p>A completely different date-night box arrives at your door every month.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">3</div>
-      <h3>Stay in</h3>
-      <p>Open the box, put the phones away and enjoy your night together.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="dates" id="dates">
-
-  <h2 class="section-title">
-    This isn't just another subscription box.
-  </h2>
-
-  <p class="section-subtitle">
-    It's twelve completely different reasons to make time for each other.
-  </p>
-
-  <div class="date-grid">
-
-    <div class="date-card">
-      <h3>🎬 Movie Night</h3>
-      <p>Cinema snacks, drinks, games and everything you need for a cosy movie date.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🎨 Paint Your Partner</h3>
-      <p>Two canvases. Two portraits. Potentially zero artistic talent.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🍕 Pizza Night</h3>
-      <p>Make it, compete, eat it and decide who's the better chef.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🎲 Games Night</h3>
-      <p>Games, couples challenges, forfeits and serious bragging rights.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🕵️ Murder Mystery</h3>
-      <p>Follow the evidence, question the suspects and crack the case together.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🔥 After Dark</h3>
-      <p>A more intimate date night designed just for the two of you.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>🍫 Chocolate Night</h3>
-      <p>Make, decorate and taste your own chocolate creations.</p>
-    </div>
-
-    <div class="date-card">
-      <h3>❓ And more...</h3>
-      <p>The best part? You won't know which date is arriving next.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="surprise">
-
-  <div class="surprise-box">
-
-    <h2>Don't peek. ♥</h2>
-
-    <p>
-      Part of the fun is not knowing what's coming.
-      Every month you'll open the door to a completely
-      different night together.
-    </p>
-
-  </div>
-
-</section>
-
-<section class="subscription" id="subscribe">
-
-  <h2>
-    Your next favourite date could arrive in a box.
-  </h2>
-
-  <p>
-    One completely different date for two every month.
-    Everything you need to switch off, stay in and make some memories.
-  </p>
-
-  <div class="subscription-price">
-    £29.99 / month
-  </div>
-
-  <a class="btn" href="#">
-    Start Our Dates ♥
-  </a>
-
-</section>
+  </section>
 
 </main>
 
